@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { Editor } from 'slate-react';
-import { Value } from 'slate';
-import styled from 'styled-components';
+import * as React from "react";
+import { Editor } from "slate-react";
+import { Value } from "slate";
+import styled from "styled-components";
 
-import Toolbar from './components/toolbar';
-import { renderNode } from './components/toolbar';
-import EditorHint from './components/editorHint';
+import Toolbar from "./components/toolbar";
+import { renderNode } from "./components/toolbar";
+import EditorHint from "./components/editorHint";
 
-import { MarkHotKeyPluginArray, renderMark } from './plugins/MarkPlugin';
+import { MarkHotKeyPluginArray, renderMark } from "./plugins/MarkPlugin";
 
-import valueConfig from './utils/valueConfig';
-import schema from './utils/schema';
+import valueConfig from "./utils/valueConfig";
+import schema from "./utils/schema";
 
 /**
  * Example
@@ -30,7 +30,7 @@ type Props = {
   readOnly?: boolean;
   placeHolder?: string;
   defaultValue?: string;
-  onChange: Function;
+  onChange: (value: string) => any;
 };
 
 export default class YOSGOEditor extends React.PureComponent<Props> {
@@ -57,7 +57,9 @@ export default class YOSGOEditor extends React.PureComponent<Props> {
     const readOnly = this.props.readOnly ? this.props.readOnly : false;
     return (
       <Wrapper>
-        {!readOnly ? <Toolbar value={this.state.value} updateValue={this.onChange} /> : null}
+        {!readOnly ? (
+          <Toolbar value={this.state.value} updateValue={this.onChange} />
+        ) : null}
         <Editor
           readOnly={readOnly}
           plugins={plugins}
@@ -87,10 +89,10 @@ const Wrapper = styled.div`
   position: relative;
 `;
 const DefaultEditorStyle = {
-  border: '1px solid rgba(124,124,124,0.2)',
-  padding: '10px',
-  minHeight: '400px',
-  borderBottomLeftRadius: '4px',
-  borderBottomRightRadius: '4px'
+  border: "1px solid rgba(124,124,124,0.2)",
+  padding: "10px",
+  minHeight: "400px",
+  borderBottomLeftRadius: "4px",
+  borderBottomRightRadius: "4px"
 };
 const ReadOnlyStyle = {};
