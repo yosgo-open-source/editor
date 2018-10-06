@@ -1,0 +1,45 @@
+{
+  "name": "yosgo-editor",
+  "version": "1.0.2",
+  "description": "",
+  "main": "lib/index.js",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-icons": "^3.1.0",
+    "react-modal": "^3.6.1",
+    "slate": "^0.41.2",
+    "slate-react": "^0.18.10",
+    "styled-components": "^3.4.9"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.8",
+    "@types/react-modal": "^3.2.1",
+    "@types/slate": "^0.40.0",
+    "@types/slate-react": "^0.18.0",
+    "typescript": "^3.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublish": "yarn build",
+    "publish": "yarn publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kcin1993/yosgo-editor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kcin1993/yosgo-editor/issues"
+  },
+  "homepage": "https://github.com/Kcin1993/yosgo-editor#readme",
+  "files": [
+    "lib",
+    "LICENSE",
+    "main.js"
+  ],
+  "types": "./lib/index.d.ts"
+}
