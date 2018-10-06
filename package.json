@@ -1,9 +1,10 @@
 {
   "name": "yosgo-editor",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "",
   "main": "lib/index.js",
   "dependencies": {
+    "@types/slate": "^0.40.0",
     "immutable": "^3.8.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

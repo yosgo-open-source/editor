@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/Cellar/node/10.5.0_1/bin/node /usr/local/bin/yarn add react-modeal react-icons
+  /usr/local/Cellar/node/10.5.0_1/bin/node /usr/local/bin/yarn publish
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /Users/kcin/Desktop/github/yosgo-editor/node_modules/.bin:/Users/kcin/.config/yarn/link/node_modules/.bin:/Users/kcin/Desktop/github/yosgo-editor/node_modules/.bin:/Users/kcin/.config/yarn/link/node_modules/.bin:/usr/local/Cellar/node/10.5.0_1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/10.5.0_1/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/10.5.0_1/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
   1.6.0
@@ -14,27 +14,31 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/react-modeal: Not found
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:65327:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:133155:22)
-      at Request.emit (events.js:182:13)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:134138:10)
-      at Request.emit (events.js:182:13)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:134058:12)
-      at Object.onceWrapper (events.js:273:13)
-      at IncomingMessage.emit (events.js:187:15)
-      at endReadableNT (_stream_readable.js:1081:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:129516:13)
+      at Interface.emit (events.js:182:13)
+      at Interface._ttyWrite (readline.js:783:16)
+      at ReadStream.onkeypress (readline.js:168:10)
+      at ReadStream.emit (events.js:182:13)
+      at emitKeys (internal/readline.js:422:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1022:36)
+      at ReadStream.emit (events.js:182:13)
+      at addChunk (_stream_readable.js:283:12)
 
 npm manifest: 
   {
     "name": "yosgo-editor",
-    "version": "1.0.0",
+    "version": "1.0.7",
     "description": "",
-    "main": "main.js",
+    "main": "lib/index.js",
     "dependencies": {
+      "@types/slate": "^0.40.0",
+      "immutable": "^3.8.2",
       "react": "^16.5.2",
       "react-dom": "^16.5.2",
+      "react-icons": "^3.1.0",
+      "react-modal": "^3.6.1",
       "slate": "^0.41.2",
       "slate-react": "^0.18.10",
       "styled-components": "^3.4.9"
@@ -42,13 +46,16 @@ npm manifest:
     "devDependencies": {
       "@types/react": "^16.4.14",
       "@types/react-dom": "^16.0.8",
+      "@types/react-modal": "^3.2.1",
       "@types/slate": "^0.40.0",
-      "@types/slate-react": "^0.18.0"
+      "@types/slate-react": "^0.18.0",
+      "typescript": "^3.1.1"
     },
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "tsc",
-      "prepublish": "yarn build"
+      "prepublish": "yarn build",
+      "publish": "yarn publish"
     },
     "repository": {
       "type": "git",
@@ -89,6 +96,12 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.8.tgz#6e1366ed629cadf55860cbfcc25db533f5d2fa7d"
     dependencies:
       "@types/node" "*"
+      "@types/react" "*"
+  
+  "@types/react-modal@^3.2.1":
+    version "3.2.1"
+    resolved "https://registry.yarnpkg.com/@types/react-modal/-/react-modal-3.2.1.tgz#48578bb362fd8be732d4e5c57c137b7e1dfd273d"
+    dependencies:
       "@types/react" "*"
   
   "@types/react@*", "@types/react@^16.4.14":
@@ -166,6 +179,10 @@ Lockfile:
   esrever@^0.2.0:
     version "0.2.0"
     resolved "https://registry.yarnpkg.com/esrever/-/esrever-0.2.0.tgz#96e9d28f4f1b1a76784cd5d490eaae010e7407b8"
+  
+  exenv@^1.2.0:
+    version "1.2.2"
+    resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
   
   fbjs@^0.8.16, fbjs@^0.8.5:
     version "0.8.17"
@@ -291,7 +308,7 @@ Lockfile:
     dependencies:
       asap "~2.0.3"
   
-  prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.2:
+  prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.2:
     version "15.6.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
     dependencies:
@@ -307,6 +324,10 @@ Lockfile:
       prop-types "^15.6.2"
       schedule "^0.5.0"
   
+  react-icons@^3.1.0:
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.1.0.tgz#004bc8d8b64a5480cdebd86ccb72ba5930b0e434"
+  
   react-immutable-proptypes@^2.1.0:
     version "2.1.0"
     resolved "https://registry.yarnpkg.com/react-immutable-proptypes/-/react-immutable-proptypes-2.1.0.tgz#023d6f39bb15c97c071e9e60d00d136eac5fa0b4"
@@ -314,6 +335,19 @@ Lockfile:
   react-is@^16.3.1:
     version "16.5.2"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
+  
+  react-lifecycles-compat@^3.0.0:
+    version "3.0.4"
+    resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+  
+  react-modal@^3.6.1:
+    version "3.6.1"
+    resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.6.1.tgz#54d27a1ec2b493bbc451c7efaa3557b6af82332d"
+    dependencies:
+      exenv "^1.2.0"
+      prop-types "^15.5.10"
+      react-lifecycles-compat "^3.0.0"
+      warning "^3.0.0"
   
   react@^16.5.2:
     version "16.5.2"
@@ -436,9 +470,19 @@ Lockfile:
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/type-of/-/type-of-2.0.1.tgz#e72a1741896568e9f628378d816d6912f7f23972"
   
+  typescript@^3.1.1:
+    version "3.1.1"
+    resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.1.1.tgz#3362ba9dd1e482ebb2355b02dfe8bcd19a2c7c96"
+  
   ua-parser-js@^0.7.18:
     version "0.7.18"
     resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.18.tgz#a7bfd92f56edfb117083b69e31d2aa8882d4b1ed"
+  
+  warning@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
+    dependencies:
+      loose-envify "^1.0.0"
   
   whatwg-fetch@>=0.10.0:
     version "3.0.0"
