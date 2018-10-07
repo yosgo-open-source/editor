@@ -8,7 +8,8 @@ import {
   FaUnderline,
   FaStrikethrough,
   FaImage,
-  FaVideo
+  FaVideo,
+  FaHeading
 } from "react-icons/fa";
 
 import { ImageBlock, VideoIframeBlock } from "./render";
@@ -163,20 +164,8 @@ class Toolbar extends React.Component<Props> {
           ariaHideApp={false}
         >
           <ModalContentWrap>
-            <h3>
-              {modalContentType === "image" ? "插入圖片 " : ""}
-              {modalContentType === "video" ? "插入影片 " : ""}
-              {modalContentType === "image" ? renderIcon("image") : ""}
-              {modalContentType === "video" ? renderIcon("video") : ""}
-            </h3>
-            <h4>
-              {modalContentType === "image"
-                ? "貼上圖片網址或是直接上傳圖片(10MB內)"
-                : ""}
-              {modalContentType === "video"
-                ? "請直接輸入 Youtube 的影片網址"
-                : ""}
-            </h4>
+            <h3>{ModalText("title", modalContentType)}</h3>
+            <h4>{ModalText("description", modalContentType)}</h4>
             <input
               onChange={e =>
                 handleMediaUrlChange(modalContentType, e.target.value)
@@ -254,9 +243,8 @@ export const renderNode = (props: any) => {
         </VideoIframeBlock>
       );
     }
-    default: {
+    default:
       return;
-    }
   }
 };
 
@@ -277,19 +265,73 @@ const renderIcon = (type: string) => {
     case "strikethrough":
       return <FaStrikethrough />;
     case "h1":
-      return "H1";
+      return (
+        <span>
+          <FaHeading />
+          <small>1</small>
+        </span>
+      );
     case "h2":
-      return "H2";
+      return (
+        <span>
+          <FaHeading />
+          <small>2</small>
+        </span>
+      );
     case "h3":
-      return "H3";
+      return (
+        <span>
+          <FaHeading />
+          <small>3</small>
+        </span>
+      );
     case "h4":
-      return "H4";
+      return (
+        <span>
+          <FaHeading />
+          <small>4</small>
+        </span>
+      );
     case "h5":
-      return "H5";
+      return (
+        <span>
+          <FaHeading />
+          <small>5</small>
+        </span>
+      );
     case "image":
       return <FaImage />;
     case "video":
       return <FaVideo />;
+    default:
+      return;
+  }
+};
+const ModalText = (textType: string, contentType: string) => {
+  switch (textType) {
+    case "title": {
+      switch (contentType) {
+        case "image":
+          return <span>插入圖片 {renderIcon("image")}</span>;
+        case "video": {
+          return <span>插入影片 {renderIcon("video")}</span>;
+        }
+        default:
+          return;
+      }
+    }
+    case "description": {
+      switch (contentType) {
+        case "image": {
+          return <span>貼上圖片網址或是直接上傳圖片(10MB內)</span>;
+        }
+        case "video": {
+          return <span>請直接輸入 Youtube 的影片網址</span>;
+        }
+        default:
+          return;
+      }
+    }
     default:
       return;
   }
@@ -322,8 +364,8 @@ const ToolbarWrap = styled.div`
   flex-wrap: wrap;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  height: 50px;
-  padding: 0 10px;
+  min-height: 50px;
+  padding: 0 5px;
 `;
 
 type ButtonStyleType = {
@@ -343,12 +385,6 @@ const Button = styled.div<ButtonStyleType>`
   margin: 5px;
   transition: 0.1s;
   border-radius: 4px;
-  &:first-child {
-    margin-left: 0px;
-  }
-  &:last-child {
-    margin-right: 0px;
-  }
   &:hover {
     background: #00b5ad;
     color: white;
