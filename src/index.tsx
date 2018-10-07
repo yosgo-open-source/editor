@@ -30,7 +30,8 @@ type Props = {
   readOnly?: boolean;
   placeHolder?: string;
   defaultValue?: string;
-  onChange: (value: string) => any;
+  imgurClientId?: string;
+  onChange?: (value: string) => any;
 };
 
 export default class YOSGOEditor extends React.PureComponent<Props> {
@@ -58,7 +59,11 @@ export default class YOSGOEditor extends React.PureComponent<Props> {
     return (
       <Wrapper>
         {!readOnly ? (
-          <Toolbar value={this.state.value} updateValue={this.onChange} />
+          <Toolbar
+            value={this.state.value}
+            updateValue={this.onChange}
+            imgurClientId={this.props.imgurClientId}
+          />
         ) : null}
         <Editor
           readOnly={readOnly}

@@ -1,9 +1,9 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import * as React from "react";
+import styled from "styled-components";
 
 type Props = {
   onImageUrlChange: Function;
-  clientId: string;
+  imgurClientId: string;
 };
 
 class Uploader extends React.Component<Props> {
@@ -12,9 +12,9 @@ class Uploader extends React.Component<Props> {
   }
 
   state = {
-    uploadLink: '',
+    uploadLink: "",
     isDrag: false,
-    uploadingText: ''
+    uploadingText: ""
   };
 
   updateUploadLink = (url: string) => {
@@ -32,9 +32,12 @@ class Uploader extends React.Component<Props> {
     const { onImageUrlChange } = this.props;
     const { updateUploadLink } = this;
     if (file) {
-      data.append('image', file);
-      request.open('POST', 'https://api.imgur.com/3/image');
-      request.setRequestHeader('Authorization', `Client-ID ${this.props.clientId}`);
+      data.append("image", file);
+      request.open("POST", "https://api.imgur.com/3/image");
+      request.setRequestHeader(
+        "Authorization",
+        `Client-ID ${this.props.imgurClientId}`
+      );
       request.onreadystatechange = function() {
         if (request.status === 200 && request.readyState === 4) {
           let response = JSON.parse(request.responseText);
@@ -45,12 +48,12 @@ class Uploader extends React.Component<Props> {
           }
         }
       };
-      request.upload.addEventListener('progress', oEvent => {
+      request.upload.addEventListener("progress", oEvent => {
         if (oEvent.lengthComputable) {
           var percentComplete = Math.ceil((oEvent.loaded / oEvent.total) * 100);
           this.setState({ uploadingText: percentComplete });
         } else {
-          this.setState({ uploadingText: '上傳中，請稍候' });
+          this.setState({ uploadingText: "上傳中，請稍候" });
         }
       });
       request.send(data);
@@ -62,18 +65,24 @@ class Uploader extends React.Component<Props> {
     return (
       <UploaderWrap>
         {/* upload image */}
-        {uploadLink === '' ? (
+        {uploadLink === "" ? (
           <UploadArea
             onDragOver={() => this.handleDrage(true)}
             onDragExit={() => this.handleDrage(false)}
             isDrag={isDrag}
             uploadingText={uploadingText}
           >
-            <input className="uploadInput" type="file" onChange={e => this.onChange(e)} />
+            <input
+              className="uploadInput"
+              type="file"
+              onChange={e => this.onChange(e)}
+            />
           </UploadArea>
         ) : null}
         {/* process and display */}
-        {uploadLink && uploadLink !== '' ? <img src={uploadLink} alt="upload preview" /> : null}
+        {uploadLink && uploadLink !== "" ? (
+          <img src={uploadLink} alt="upload preview" />
+        ) : null}
       </UploaderWrap>
     );
   }
@@ -104,14 +113,15 @@ type UploadAreaProps = {
 };
 const UploadArea = styled.div<UploadAreaProps>`
   border: 2px dotted lightgray !important;
-  background: ${({ isDrag }) => (isDrag ? 'rgba(0,0,0,0.05)' : 'rgba(0,0,0,0)')};
+  background: ${({ isDrag }) =>
+    isDrag ? "rgba(0,0,0,0.05)" : "rgba(0,0,0,0)"};
   position: relative;
   transition: 0.1s;
   border-radius: 3px;
   over-flow: hidden;
   &:before {
     content: "${({ uploadingText }) =>
-      uploadingText === '' ? '拖曳圖片至此上傳' : `上傳中(${uploadingText}%)`}";
+      uploadingText === "" ? "拖曳圖片至此上傳" : `上傳中(${uploadingText}%)`}";
     position: absolute;
     width: calc(100% - 2px);
     height: 100%;

@@ -20,6 +20,7 @@ import { getYoutubeId, getYoutubeEmbedUrl } from "../utils/handleYoutube";
 type Props = {
   value: Value;
   updateValue: ({ value }: { value: Value }) => void;
+  imgurClientId?: string;
 };
 
 class Toolbar extends React.Component<Props> {
@@ -131,6 +132,7 @@ class Toolbar extends React.Component<Props> {
       handleMediaUrlChange
     } = this;
     const { modalIsOpen, modalContentType, videoUrl, imageUrl } = this.state;
+    const { imgurClientId } = this.props;
     return (
       <div>
         <ToolbarWrap>
@@ -171,14 +173,14 @@ class Toolbar extends React.Component<Props> {
                   : "請貼上 youtube 網址"
               }
             />
-            {modalContentType === "image" ? (
+            {modalContentType === "image" && imgurClientId ? (
               <div>
                 <p className="or">或者</p>
                 <Uploader
                   onImageUrlChange={(url: string) =>
                     this.handleImageUploadUrl(url)
                   }
-                  clientId={"98285ba983cd6ff"}
+                  imgurClientId={imgurClientId}
                 />
               </div>
             ) : null}
