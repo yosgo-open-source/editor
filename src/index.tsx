@@ -4,7 +4,7 @@ import { Value } from "slate";
 import styled from "styled-components";
 
 import Toolbar from "./components/toolbar";
-import { renderNode } from "./components/toolbar";
+import { renderNode } from "./components/render";
 import EditorHint from "./components/editorHint";
 
 import { MarkHotKeyPluginArray, renderMark } from "./plugins/MarkPlugin";
