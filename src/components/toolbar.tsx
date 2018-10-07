@@ -78,7 +78,10 @@ class Toolbar extends React.Component<Props> {
     event.preventDefault();
     const { imageUrl } = this.state;
     const { value, updateValue } = this.props;
-    if (!imageUrl || imageUrl === "") return;
+    if (!imageUrl || imageUrl === "") {
+      alert("圖片網址不存在");
+      return;
+    }
     const addImageChange = value.change().insertBlock({
       type: "image",
       data: { src: imageUrl }
@@ -92,13 +95,23 @@ class Toolbar extends React.Component<Props> {
     const { value, updateValue } = this.props;
     const id = getYoutubeId(videoUrl);
     const src = getYoutubeEmbedUrl(id);
-    if (!videoUrl || videoUrl === "") return;
+    if (!videoUrl || videoUrl === "") {
+      alert("影片網址不存在");
+      return;
+    }
     const addVideoChange = value.change().insertBlock({
       type: "video",
       data: { src }
     });
     updateValue(addVideoChange);
     this.closeModal();
+  };
+  handleKeypress = (event: any, type: string) => {
+    const isEnterKey = event.key === "Enter";
+    const isImage = type === "image";
+    const isVideo = type === "video";
+    if (isEnterKey && isImage) this.handleImageUrl(event);
+    else if (isEnterKey && isVideo) this.handleVideoUrl(event);
   };
   handleImageUploadUrl = (url: string) => {
     this.setState({ imageUrl: url });
@@ -129,7 +142,8 @@ class Toolbar extends React.Component<Props> {
       renderFunctionButton,
       handleImageUrl,
       handleVideoUrl,
-      handleMediaUrlChange
+      handleMediaUrlChange,
+      handleKeypress
     } = this;
     const { modalIsOpen, modalContentType, videoUrl, imageUrl } = this.state;
     const { imgurClientId } = this.props;
@@ -167,6 +181,7 @@ class Toolbar extends React.Component<Props> {
               onChange={e =>
                 handleMediaUrlChange(modalContentType, e.target.value)
               }
+              onKeyPress={e => handleKeypress(e, modalContentType)}
               placeholder={
                 modalContentType === "image"
                   ? "請貼上圖片網址"
