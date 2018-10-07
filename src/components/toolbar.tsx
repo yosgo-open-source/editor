@@ -216,17 +216,23 @@ export default Toolbar;
  * 渲染 客製 Block
  */
 export const renderNode = (props: any) => {
-  const { attributes, node, isFocused, isSelected } = props;
+  const { attributes, node, isFocused, isSelected, readOnly } = props;
   switch (node.type) {
     case "image": {
       const src = node.data.get("src");
-      return <ImageBlock src={src} selected={isFocused} {...attributes} />;
+      return (
+        <ImageBlock
+          src={src}
+          selected={readOnly ? false : isFocused}
+          {...attributes}
+        />
+      );
     }
     case "video": {
       const src = node.data.get("src");
       return (
         <VideoIframeBlock selected={isSelected} {...attributes}>
-          <div className="mask" />
+          {readOnly ? null : <div className="mask" />}
           <iframe src={src} />
         </VideoIframeBlock>
       );
