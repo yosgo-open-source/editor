@@ -1,0 +1,25 @@
+.App {
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col {
+  margin: 50px;
+  flex: 0 1 50%;
+  overflow: hidden;
+}
+
+.divider {
+  margin: 0 50px;
+  display: block;
+  border-bottom: 1px solid lightgray;
+}
+
+h3 {
+  margin: 0 0 20px 0;
+}

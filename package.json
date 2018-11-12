@@ -4,29 +4,24 @@
   "description": "",
   "main": "lib/index.js",
   "dependencies": {
-    "@types/slate": "^0.40.0",
-    "immutable": "^3.8.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-icons": "^3.1.0",
     "react-modal": "^3.6.1",
-    "slate": "^0.41.2",
-    "slate-react": "^0.18.10",
+    "react-quill": "^1.3.2",
     "styled-components": "^3.4.9"
   },
   "devDependencies": {
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.8",
     "@types/react-modal": "^3.2.1",
-    "@types/slate": "^0.40.0",
-    "@types/slate-react": "^0.18.0",
     "typescript": "^3.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc && tsc -outDir demo/node_modules/yosgo-editor",
     "prepublish": "yarn build",
-    "publish": "yarn publish"
+    "publish": "yarn publish",
+    "demo": "cd demo && yarn start"
   },
   "repository": {
     "type": "git",
@@ -43,5 +38,8 @@
     "LICENSE",
     "main.js"
   ],
+  "resolutions": {
+    "@types/quill": "1.3.6"
+  },
   "types": "./lib/index.d.ts"
 }
