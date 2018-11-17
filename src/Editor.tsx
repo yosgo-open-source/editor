@@ -31,10 +31,9 @@ VideoContainer.tagName = "div";
 Quill.register(VideoContainer);
 
 type Props = {
+  value: string;
+  onChange: (html: string) => any;
   mode?: "normal" | "simple";
-  defaultLine?: number;
-  defaultValue?: string;
-  onChange?: (html: string) => any;
   imgurClientId?: string;
 };
 
@@ -46,44 +45,13 @@ export default class Editor extends React.PureComponent<Props> {
   }
 
   state = {
-    value: "",
     isOpen: false,
     imageUrl: "",
     uploadingText: "拖曳圖片至此上傳"
   };
 
-  componentDidMount = () => {
-    const defaultLine = this.props.defaultLine;
-    const defaultValue = this.props.defaultValue;
-    if (defaultValue) {
-      this.setState({ value: defaultValue });
-    } else if (defaultLine && defaultLine > 0) {
-      let value = "";
-      for (var x = 0; x < defaultLine; x++) {
-        value += "<p><br/></p>";
-      }
-      this.setState({
-        value
-      });
-    } else {
-      this.setState({
-        value: ""
-      });
-    }
-  };
-
-  onChange = (html: string, delta: any, source: any, editor: any) => {
-    const { onChange } = this.props;
-    if (onChange) {
-      onChange(html);
-      this.setState({
-        value: html
-      });
-    } else {
-      this.setState({
-        value: html
-      });
-    }
+  onChange = (html: string) => {
+    this.props.onChange(html);
   };
 
   formats = () => {
@@ -224,9 +192,8 @@ export default class Editor extends React.PureComponent<Props> {
             this.reactQuillRef = el;
           }}
           className="yosgo-editor"
-          value={this.state.value}
+          value={this.props.value}
           onChange={this.onChange}
-          defaultValue={this.props.defaultValue}
           formats={this.formats()}
           modules={this.modules()}
         />

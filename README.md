@@ -11,54 +11,21 @@ The editor use React, Typescript, react-quill
 
 # Get start
 
-### Example code
+### Install
+
+styled-components is peerDependencies. If you don't install styled-components `yarn add styled-components` first.
 
 ```
-class App extends Component {
-  constructor(props: any) {
-    super(props);
-    this.handleHtmlChange = this.handleHtmlChange.bind(this);
-  }
-  state = {
-    html: "",
-    defaultValue: "<p>Hi type something</p><p><br></p><p><br></p><p><br></p>"
-  };
-
-  handleHtmlChange(html: string) {
-    this.setState({ html });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div className="row">
-          <div className="col">
-            <h3>editor example</h3>
-            <Editor
-              defaultValue={this.state.defaultValue}
-              onChange={this.handleHtmlChange}
-              imgurClientId="98285ba983cd6ff"
-            />
-          </div>
-          <div className="col">
-            <h3>viewer result</h3>
-            <Viewer html={this.state.html} />
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+yarn add yosgo-editor
 ```
 
 ### Editor props
 
 | props         | required | type                           | description                                                              |
 | ------------- | -------- | ------------------------------ | ------------------------------------------------------------------------ |
+| value         | yes      | string                         | 編輯器中的內容，html 的字串內容                                          |
+| onChange      | yes      | function (html: string) => any | 當編輯器改變時取得 html 內容，並執行自訂函式                             |
 | mode          | no       | string "normal", "simple"      | 簡單模式僅支援粗體、文字超連結、圖片、影片。預設為正常模式               |
-| defaultLine   | no       | number                         | 預設編輯器行數。無此屬性編輯器預設一行                                   |
-| defaultValue  | no       | string                         | 編輯器初始的 html 內容。例如暫存情境                                     |
-| onChange      | no       | function (html: string) => any | 當編輯器改變時取得 html 內容，並執行自訂函示                             |
 | imgurClientId | no       | string                         | 圖片上傳至指定 imgur application。無此屬性編輯器僅提供貼上圖片網址的功能 |
 
 ### Viewer props
@@ -66,16 +33,6 @@ class App extends Component {
 | props | required | type   | description                                                                |
 | ----- | -------- | ------ | -------------------------------------------------------------------------- |
 | html  | yes      | string | 顯示 HTML 內容。透過 Viewer 元件，讓編輯情境與查看情境時的內容樣式保持一致 |
-
-### Run Demo
-
-```
-// Build package to demo folder
-// Move to demo folder and run demo at localhost:3000
-$ yarn build
-$ cd demo
-$ yarn && yarn start
-```
 
 # Relative issue tracking
 
@@ -93,3 +50,4 @@ $ yarn && yarn start
 - [Nest blot](https://github.com/quilljs/parchment/issues/30#issuecomment-341017210)
 - [Imgur api reference](https://apidocs.imgur.com/)
 - [Quill API doc](https://quilljs.com/docs/api/)
+- [I am a library author. Should I bundle styled-components with my library?](https://www.styled-components.com/docs/faqs#i-am-a-library-author-should-i-bundle-styledcomponents-with-my-library)
