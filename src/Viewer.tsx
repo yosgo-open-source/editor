@@ -27,6 +27,7 @@ const Wrap = styled.div`
       display: none;
     }
     .ql-container {
+      font-size: 14.8px;
       border: 0px solid #ccc !important;
       .ql-editor {
         padding: 0 !important;

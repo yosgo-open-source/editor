@@ -34,6 +34,10 @@ yarn add yosgo-editor
 | ----- | -------- | ------ | -------------------------------------------------------------------------- |
 | html  | yes      | string | 顯示 HTML 內容。透過 Viewer 元件，讓編輯情境與查看情境時的內容樣式保持一致 |
 
+### Example
+
+[Example on CodeSandBox](https://codesandbox.io/s/q783pw33qj?autoresize=1&hidenavigation=1)
+
 # Relative issue tracking
 
 - [react-quill build issue solve with "esModuleInterop": true](https://github.com/quilljs/delta/issues/33)
