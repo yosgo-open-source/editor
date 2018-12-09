@@ -32,7 +32,7 @@ Quill.register(VideoContainer);
 
 type Props = {
   value: string;
-  onChange: (html: string) => any;
+  onChange: (html: string) => void;
   mode?: "normal" | "simple";
   imgurClientId?: string;
 };
@@ -48,10 +48,6 @@ export default class Editor extends React.PureComponent<Props> {
     isOpen: false,
     imageUrl: "",
     uploadingText: "拖曳圖片至此上傳"
-  };
-
-  onChange = (html: string) => {
-    this.props.onChange(html);
   };
 
   formats = () => {
@@ -184,7 +180,7 @@ export default class Editor extends React.PureComponent<Props> {
 
   render() {
     const { isOpen, imageUrl, uploadingText } = this.state;
-    const { imgurClientId } = this.props;
+    const { imgurClientId, onChange } = this.props;
     return (
       <Wrap>
         <ReactQuill
@@ -193,7 +189,7 @@ export default class Editor extends React.PureComponent<Props> {
           }}
           className="yosgo-editor"
           value={this.props.value}
-          onChange={this.onChange}
+          onChange={onChange}
           formats={this.formats()}
           modules={this.modules()}
         />

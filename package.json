@@ -1,6 +1,6 @@
 {
-  "name": "yosgo-editor",
-  "version": "1.1.11",
+  "name": "@yosgo/editor",
+  "version": "1.1.13",
   "description": "",
   "main": "lib/index.js",
   "dependencies": {
@@ -23,21 +23,20 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && tsc -outDir demo/node_modules/yosgo-editor",
+    "build": "tsc",
     "prepublish": "yarn build",
-    "publish": "yarn publish",
-    "demo": "cd demo && yarn start"
+    "publish": "yarn publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kcin1993/yosgo-editor.git"
+    "url": "git+https://github.com/yosgo-open-source/editor.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kcin1993/yosgo-editor/issues"
+    "url": "https://github.com/yosgo-open-source/editor/issues"
   },
-  "homepage": "https://github.com/Kcin1993/yosgo-editor#readme",
+  "homepage": "https://github.com/yosgo-open-source/editor",
   "files": [
     "lib",
     "LICENSE",
@@ -52,5 +51,8 @@
     "react",
     "quill",
     "react-component"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
