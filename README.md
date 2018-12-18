@@ -21,12 +21,12 @@ yarn add yosgo-editor
 
 ### Editor props
 
-| props         | required | type                           | description                                                              |
-| ------------- | -------- | ------------------------------ | ------------------------------------------------------------------------ |
-| value         | yes      | string                         | 編輯器中的內容，html 的字串內容                                          |
-| onChange      | yes      | function (html: string) => any | 當編輯器改變時取得 html 內容，並執行自訂函式                             |
-| mode          | no       | string "normal", "simple"      | 簡單模式僅支援粗體、文字超連結、圖片、影片。預設為正常模式               |
-| imgurClientId | no       | string                         | 圖片上傳至指定 imgur application。無此屬性編輯器僅提供貼上圖片網址的功能 |
+| props         | required | type                            | description                                                              |
+| ------------- | -------- | ------------------------------- | ------------------------------------------------------------------------ |
+| value         | yes      | string                          | 編輯器中的內容，html 的字串內容                                          |
+| onChange      | yes      | function (html: string) => void | 當編輯器改變時取得 html 內容，並執行自訂函式                             |
+| mode          | no       | string "normal", "simple"       | 簡單模式僅支援粗體、文字超連結、圖片、影片。預設為正常模式               |
+| imgurClientId | no       | string                          | 圖片上傳至指定 imgur application。無此屬性編輯器僅提供貼上圖片網址的功能 |
 
 ### Viewer props
 
@@ -40,8 +40,11 @@ yarn add yosgo-editor
 
 # Relative issue tracking
 
-- [react-quill build issue solve with "esModuleInterop": true](https://github.com/quilljs/delta/issues/33)
-- [react-quill build issue solve with "resolutions": {"@types/quill": "1.3.6" }](https://github.com/zenoamaro/react-quill/issues/415)
+| Issue                                                                        | 相關連結                                                    | 狀態 |
+| ---------------------------------------------------------------------------- | ----------------------------------------------------------- | ---- |
+| react-quill build issue solve with "esModuleInterop": true                   | [Link](https://github.com/quilljs/delta/issues/33)          | 修正 |
+| react-quill build issue solve with "resolutions": {"@types/quill": "1.3.6" } | [Link](https://github.com/zenoamaro/react-quill/issues/415) | 修正 |
+| extra lines                                                                  | [Link](https://github.com/zenoamaro/react-quill/issues/409) | 修正 |
 
 # Helpful resource
 

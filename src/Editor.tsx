@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import ReactQuill, { Quill } from "react-quill";
-import Modal from "react-modal";
+import * as Modal from "react-modal";
 import "react-quill/dist/quill.snow.css";
 
 /**
@@ -88,6 +88,9 @@ export default class Editor extends React.PureComponent<Props> {
         handlers: {
           image: this.imageHandler
         }
+      },
+      clipboard: {
+        matchVisual: false
       }
     };
     const simple_modules = {
