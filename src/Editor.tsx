@@ -99,6 +99,9 @@ export default class Editor extends React.PureComponent<Props> {
         handlers: {
           image: this.imageHandler
         }
+      },
+      clipboard: {
+        matchVisual: false
       }
     };
     switch (this.props.mode) {

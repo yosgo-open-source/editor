@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import ReactQuill from "react-quill";
+import { format } from "path";
 
 type Props = {
   html: string;
@@ -9,10 +10,20 @@ type Props = {
 export default class Viewer extends React.PureComponent<Props> {
   render() {
     const { html } = this.props;
+    const modules = {
+      clipboard: {
+        matchVisual: false
+      }
+    };
     return (
       <Wrap>
         {html ? (
-          <ReactQuill value={html} readOnly className="yosgo-viewer" />
+          <ReactQuill
+            value={html}
+            readOnly
+            className="yosgo-viewer"
+            modules={modules}
+          />
         ) : (
           ""
         )}
