@@ -45,6 +45,7 @@ yarn add yosgo-editor
 | react-quill build issue solve with "esModuleInterop": true                   | [Link](https://github.com/quilljs/delta/issues/33)          | 修正 |
 | react-quill build issue solve with "resolutions": {"@types/quill": "1.3.6" } | [Link](https://github.com/zenoamaro/react-quill/issues/415) | 修正 |
 | extra lines                                                                  | [Link](https://github.com/zenoamaro/react-quill/issues/409) | 修正 |
+| BlockEmbed cause copy paste error                                            | [Link](https://github.com/quilljs/quill/issues/2418)        | 修正 |
 
 # Helpful resource
 

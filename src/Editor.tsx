@@ -22,7 +22,7 @@ class VideoContainer extends BlockEmbed {
   }
 
   static value(node: any) {
-    return node.firstChild.getAttribute("src");
+    return node.getAttribute("src");
   }
 }
 
