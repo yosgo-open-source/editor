@@ -347,7 +347,7 @@ const Wrap = styled.div`
 
 const customStyles = {
   overlay: {
-    zIndex: 2
+    zIndex: 99999
   },
   content: {
     top: "50%",
