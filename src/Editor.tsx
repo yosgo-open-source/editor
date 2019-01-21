@@ -321,7 +321,7 @@ const Wrap = styled.div`
     display: block;
     position: relative;
     width: 100%;
-    max-woidth: 100%;
+    max-width: 100%;
     height: auto;
     object-fit: cover;
     &:hover {
