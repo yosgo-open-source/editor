@@ -16,7 +16,7 @@ The editor use React, Typescript, react-quill
 styled-components is peerDependencies. If you don't install styled-components `yarn add styled-components` first.
 
 ```
-yarn add yosgo-editor
+yarn add @yosgo/editor
 ```
 
 ### Editor props
